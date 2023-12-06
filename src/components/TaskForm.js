@@ -1,3 +1,4 @@
+// src/components/TaskForm.js
 import React, { useEffect } from "react";
 import { Form, Input, DatePicker, Select, Button } from "antd";
 import moment from "moment";
@@ -33,17 +34,7 @@ const TaskForm = ({ onSubmit, editingTask }) => {
   };
 
   return (
-    <Form
-      form={form}
-      onFinish={handleSubmit}
-      layout="vertical"
-      style={{
-        padding: "20px",
-        backgroundColor: "#fff",
-        borderRadius: "8px",
-        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-      }}
-    >
+    <Form form={form} onFinish={handleSubmit} layout="vertical">
       <h2 style={{ marginBottom: "20px", color: "#1890ff" }}>
         {editingTask ? "Edit Task" : "Add Task"}
       </h2>
@@ -62,7 +53,7 @@ const TaskForm = ({ onSubmit, editingTask }) => {
         label="Due Date"
         rules={[{ required: true, message: "Please select a due date" }]}
       >
-        <DatePicker showTime />
+        <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
       </Form.Item>
       <Form.Item
         name="priority"
